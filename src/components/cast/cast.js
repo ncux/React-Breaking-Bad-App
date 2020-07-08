@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './cast.module.css';
 import Loading from "../loading/loading";
+import { CastMember } from "./cast_member/cast_member";
 
 export const Cast = ({ loading, characters }) => {
 
@@ -9,15 +10,12 @@ export const Cast = ({ loading, characters }) => {
             {
                 characters.map(character => {
                     return (
-                        <div className={`${classes}`}>
-                            { character.name }
-                        </div>
+                            <CastMember key={character.id} character={ character } />
                     )
                 })
             }
         </section>
     );
-
 
     if(loading) return (<Loading />);
 
